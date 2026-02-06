@@ -1,26 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>A Real Chatty Place</title>
+    <title>Play Levels</title>
   </head>
   <body>
     <style>
-      body{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        margin: 0;
+      .levelbox{
+        width: 200px;
+        height: 75px;
+        background-color: #ffffff;
       }
-      .welcome{
-        font-size: 50px;
-        color: black;
+      .levelbox::hover{
+        background-color: #dbdbdb;
       }
+      
     </style>
-
-    <div class="welcome">
-      <p>Welcome</p>
+    <div class="levelbox">
+      <h3>Level Up!</h3>
     </div>
+    <h3>Level: <span id="levelDisplay">0</span></h3>
+    <script>
+      // 1. Initialize the level variable
+      let currentLevel = 1;
+
+      // 2. Select the HTML elements
+      const button = document.getElementById('levelbox');
+      const display = document.getElementById('levelDisplay');
+
+      // 3. Add a click event listener
+      button.addEventListener('click', () => {
+        // Increment the level by 1
+        currentLevel++; 
+    
+        // Update the text on the page
+        display.textContent = currentLevel;
+      });
+    </script>
+    
   </body>
   
 </html>
