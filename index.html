@@ -1,43 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Play Levels</title>
+    <title>Information</title>
   </head>
   <body>
-    <style>
-      .levelbox{
-        width: 200px;
-        height: 75px;
-        background-color: #ffffff;
-        border-color: #000000;
-      }
-      .levelbox::hover{
-        background-color: #dbdbdb;
-      }
-      
-    </style>
-    <div class="levelbox">
-      <h3>Level Up!</h3>
-    </div>
-    <h3>Level: <span id="levelDisplay">0</span></h3>
-    <script>
-      // 1. Initialize the level variable
-      let currentLevel = 1;
 
-      // 2. Select the HTML elements
-      const button = document.getElementById('levelbox');
-      const display = document.getElementById('levelDisplay');
+    <h1>Welcome</h1>
+    <form action="server.php" method="post">
+      <fieldset>
+        <legend>Personal Information</legend>
+        <label for="first-name">First Name:</label>
+        <input type="text" id="first-name" name="first-name" required>
+        <label for="last-name">Last Name:</label>
+        <input type="text" id="last-name" name="last-name" required>
+        <br>
+        <label for="birthday">Date of Birth:</label>
+        <input type="date" id="birthday" name="birthday" required>
+        <br>
+        <label for="address">Home Address:</label>
+        <input type="text" id="address" name="address" required>
+      </fieldset>
+      <fieldset>
+          <legend>Account Details</legend>
+          <label for="email">Email Address:</label>
+          <input type="email" id="email" name="email" required>
+          <label for="phone-number">Phone Number:</label>
+          <input type="tel" pattern="^\+?[0-9\s\-]{7,15}$" id="phone-number" name="phone-number" required>
+          <br>
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+          <br>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+      </fieldset>  
+      <fieldset>
+          <legend>Device Details</legend>
+          <input type="radio" id="phone" name="platform" required>
+          <label for="phone">Phone</label>
+          <input type="radio" id="computer" name="platform" required>
+          <label for="computer">Computer</label>
+          <label for="other">Other:</label>
+          <input type="text" id="other" name="platform">
+          <br>
+          <label for="color">Device Color:</label>
+          <input type="color" id="color" name="color" required>
+      </fieldset>
+      <input type="submit" value="Submit" onclick="alert('Thank you!')">
+      <input type="reset" value="Reset">
+      <input type="button" value="More Information" onclick="alert('This was created by a student. Any and all details submitted through this form are not tracked.')">
+    </form>
 
-      // 3. Add a click event listener
-      button.addEventListener('click', () => {
-        // Increment the level by 1
-        currentLevel++; 
-    
-        // Update the text on the page
-        display.textContent = currentLevel;
-      });
-    </script>
-    
   </body>
-  
 </html>
